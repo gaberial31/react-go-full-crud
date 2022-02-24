@@ -1,0 +1,13 @@
+version: '3'
+services:
+  react:
+    build: 
+      context: ./reactfrontend
+    container_name: react_app
+    ports:
+      - "3000:80"
+    depends_on:
+      - app
+    
+networks:
+  default:

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7.33
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+    container_name: golang_db
+    volumes:
+      - ./Go/mysql:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    
+networks:
+  default:
